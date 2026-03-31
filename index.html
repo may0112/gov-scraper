@@ -1,431 +1,255 @@
 <!DOCTYPE html>
-
 <html lang="ko">
-
 <head>
-
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>정부기관 주간 이슈 스크랩</title>
-
   <style>
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f5f3; color: #1a1a1a; min-height: 100vh; padding: 1.5rem 1rem; }
-
     .container { max-width: 900px; margin: 0 auto; }
-
     .header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 12px; }
-
     .header h1 { font-size: 20px; font-weight: 500; }
-
     .header p { font-size: 13px; color: #666; margin-top: 4px; }
-
     .btn-group { display: flex; gap: 8px; }
-
     button { font-size: 13px; padding: 6px 16px; border-radius: 8px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-family: inherit; color: #1a1a1a; transition: background 0.15s; }
-
     button:hover { background: #f0f0f0; }
-
-    button.primary { font-weight: 500; }
-
+    .api-box { background: #fff; border: 1.5px solid #FAC775; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
+    .api-box p { font-size: 13px; font-weight: 500; margin-bottom: 8px; color: #633806; }
+    .api-row { display: flex; gap: 8px; align-items: center; }
+    .api-row input { flex: 1; font-size: 13px; padding: 7px 12px; border-radius: 8px; border: 1px solid #ddd; font-family: inherit; background: #fafafa; letter-spacing: 0.03em; }
+    .api-row button { white-space: nowrap; background: #185FA5; color: #fff; border-color: #185FA5; }
+    .api-row button:hover { background: #0C447C; }
+    .api-saved { font-size: 12px; color: #3B6D11; margin-top: 6px; display: none; }
+    .api-link { font-size: 12px; color: #185FA5; margin-top: 6px; display: block; }
     .tabs { display: flex; gap: 8px; margin-bottom: 1.25rem; flex-wrap: wrap; }
-
     .tab { font-size: 13px; padding: 5px 14px; border-radius: 20px; border: 1px solid #ddd; background: transparent; cursor: pointer; color: #666; font-family: inherit; }
-
     .tab.active { background: #fff; color: #1a1a1a; font-weight: 500; border-color: #bbb; }
-
     .settings-box { background: #f0f0ee; border-radius: 12px; border: 1px solid #e0e0e0; padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
-
     .settings-box p { font-size: 14px; font-weight: 500; margin-bottom: 10px; }
-
     .settings-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-
     .settings-row label { font-size: 13px; color: #666; min-width: 80px; }
-
     .settings-row input { flex: 1; font-size: 13px; padding: 5px 10px; border-radius: 6px; border: 1px solid #ccc; background: #fff; font-family: inherit; }
-
     .last-updated { font-size: 12px; color: #888; text-align: right; margin-bottom: 12px; }
-
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-
     .card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 1rem 1.25rem; }
-
     .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-
     .card-title { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; }
-
     .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-
     .card-link { font-size: 12px; text-decoration: none; }
-
     .card-link:hover { text-decoration: underline; }
-
     .summary-box { font-size: 13px; color: #444; line-height: 1.7; margin-bottom: 12px; padding: 8px 10px; border-radius: 8px; }
-
     .item { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
-
     .item:last-of-type { border-bottom: none; }
-
     .item-top { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 4px; }
-
     .item-title { font-size: 13px; font-weight: 500; flex: 1; line-height: 1.4; }
-
     .badge { font-size: 11px; padding: 1px 7px; border-radius: 5px; white-space: nowrap; border: 1px solid transparent; }
-
     .badge-high { background: #FCEBEB; color: #A32D2D; border-color: #F09595; }
-
     .badge-medium { background: #FAEEDA; color: #854F0B; border-color: #FAC775; }
-
     .badge-low { background: #EAF3DE; color: #3B6D11; border-color: #C0DD97; }
-
     .item-desc { font-size: 12px; color: #666; line-height: 1.6; }
-
     .insight { margin-top: 10px; padding: 8px 10px; border-radius: 0 6px 6px 0; background: #f7f7f5; font-size: 12px; color: #333; line-height: 1.6; }
-
     .placeholder { padding: 1rem 0; text-align: center; }
-
     .placeholder p { font-size: 13px; color: #888; margin-bottom: 10px; }
-
     .kw-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
-
     .kw-tag { font-size: 11px; padding: 2px 8px; border-radius: 5px; }
-
     .loading { padding: 1.5rem 0; text-align: center; font-size: 13px; color: #888; }
-
     .error { font-size: 13px; color: #c0392b; }
-
     .unified { margin-bottom: 24px; }
-
-    .unified-title { font-size: 13px; font-weight: 500; color: #666; margin-bottom: 10px; }
-
+    .unified-label { font-size: 13px; font-weight: 500; color: #666; margin-bottom: 10px; }
     .unified-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
-
     .agency-badge { font-size: 11px; padding: 2px 8px; border-radius: 5px; white-space: nowrap; margin-top: 2px; }
-
     .unified-content { flex: 1; }
-
     .unified-header { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
-
     .unified-title-text { font-size: 14px; font-weight: 500; }
-
     .unified-desc { font-size: 13px; color: #666; line-height: 1.6; }
-
     .unified-date { font-size: 12px; color: #aaa; white-space: nowrap; margin-top: 2px; }
-
     .footer-note { margin-top: 20px; padding: 10px 14px; background: #f0f0ee; border-radius: 8px; font-size: 12px; color: #888; line-height: 1.7; }
-
   </style>
-
 </head>
-
 <body>
-
 <div class="container">
 
   <div class="header">
-
     <div>
-
       <h1>정부기관 주간 이슈 스크랩</h1>
-
       <p>공정위 · 소비자원 · 개인정보위 인터넷 회원 관련 보도자료</p>
-
     </div>
-
     <div class="btn-group">
-
       <button onclick="toggleSettings()">키워드 설정</button>
-
-      <button class="primary" onclick="fetchAll()">지금 스크랩 ↗</button>
-
+      <button onclick="fetchAll()" style="font-weight:500;">지금 스크랩 ↗</button>
     </div>
-
   </div>
 
-
+  <!-- API 키 입력창 -->
+  <div class="api-box" id="apiBox">
+    <p>Anthropic API 키를 입력해주세요</p>
+    <div class="api-row">
+      <input type="password" id="apiKeyInput" placeholder="sk-ant-..." />
+      <button onclick="saveKey()">저장</button>
+    </div>
+    <span class="api-saved" id="apiSaved">✓ 저장됐습니다. 이제 스크랩 버튼을 눌러주세요!</span>
+    <a class="api-link" href="https://console.anthropic.com" target="_blank">API 키 발급받기 (console.anthropic.com) →</a>
+  </div>
 
   <div class="settings-box" id="settingsBox" style="display:none">
-
     <p>추가 키워드 설정 (쉼표로 구분)</p>
-
     <div class="settings-row"><label>공정위</label><input id="kw-ftc" placeholder="온라인, 이용자, 회원, 플랫폼, 전자상거래" /></div>
-
     <div class="settings-row"><label>소비자원</label><input id="kw-kca" placeholder="온라인, 회원, 구독, 취소, 환불, 피해" /></div>
-
     <div class="settings-row"><label>개인정보위</label><input id="kw-pipc" placeholder="개인정보, 회원, 동의, 수집, 처리, 위반" /></div>
-
   </div>
-
-
 
   <div id="lastUpdated" class="last-updated" style="display:none"></div>
 
-
-
-  <div class="tabs" id="tabs">
-
-    <button class="tab active" onclick="setTab('all')">전체 보기</button>
-
-    <button class="tab" onclick="setTab('ftc')">공정위</button>
-
-    <button class="tab" onclick="setTab('kca')">소비자원</button>
-
-    <button class="tab" onclick="setTab('pipc')">개인정보위</button>
-
+  <div class="tabs">
+    <button class="tab active" onclick="setTab('all',event)">전체 보기</button>
+    <button class="tab" onclick="setTab('ftc',event)">공정위</button>
+    <button class="tab" onclick="setTab('kca',event)">소비자원</button>
+    <button class="tab" onclick="setTab('pipc',event)">개인정보위</button>
   </div>
-
-
 
   <div class="unified" id="unifiedSection" style="display:none">
-
-    <div class="unified-title">중요도 순 통합 목록</div>
-
+    <div class="unified-label">중요도 순 통합 목록</div>
     <div id="unifiedList"></div>
-
   </div>
-
-
 
   <div class="grid" id="grid"></div>
 
-
-
   <div class="footer-note">
-
     ※ 이 대시보드는 AI가 생성한 예시 이슈 분석입니다. 실제 보도자료 확인은 각 기관 공식 사이트 링크를 이용해주세요. 매주 월요일 "지금 스크랩" 버튼을 눌러 최신 동향을 받아보세요.
-
   </div>
-
 </div>
 
-
-
 <script>
-
 const AGENCIES = [
-
   { id:"ftc", name:"공정거래위원회", short:"공정위", color:"#185FA5", bg:"#E6F1FB", text:"#0C447C",
-
     kw:["온라인","이용자","회원","플랫폼","전자상거래","약관","구독"],
-
     url:"https://www.ftc.go.kr/www/selectReportUserList.do?key=10&rpttype=1" },
-
   { id:"kca", name:"한국소비자원", short:"소비자원", color:"#0F6E56", bg:"#E1F5EE", text:"#085041",
-
     kw:["온라인","회원","구독","취소","환불","피해","앱"],
-
     url:"https://www.kca.go.kr/home/sub.do?menukey=4002" },
-
   { id:"pipc", name:"개인정보보호위원회", short:"개인정보위", color:"#533AB7", bg:"#EEEDFE", text:"#3C3489",
-
     kw:["개인정보","회원","동의","수집","처리","위반","제재"],
-
     url:"https://www.pipc.go.kr/np/cop/bbs/selectBoardList.do?bbsId=BS074" }
-
 ];
 
-
-
 let results = {}, loading = {}, activeTab = "all";
+let apiKey = localStorage.getItem("anthropic_api_key") || "";
 
+window.onload = function() {
+  if (apiKey) {
+    document.getElementById("apiKeyInput").value = apiKey;
+    document.getElementById("apiBox").style.borderColor = "#C0DD97";
+    document.getElementById("apiSaved").style.display = "block";
+  }
+  AGENCIES.forEach(renderCard);
+};
 
+function saveKey() {
+  const val = document.getElementById("apiKeyInput").value.trim();
+  if (!val.startsWith("sk-")) { alert("올바른 API 키를 입력해주세요. (sk-ant-... 형태)"); return; }
+  apiKey = val;
+  localStorage.setItem("anthropic_api_key", val);
+  document.getElementById("apiBox").style.borderColor = "#C0DD97";
+  document.getElementById("apiSaved").style.display = "block";
+}
 
 function getKw(id) {
-
   const val = document.getElementById("kw-"+id)?.value.trim();
-
   if (val) return val.split(",").map(s=>s.trim()).filter(Boolean);
-
   return AGENCIES.find(a=>a.id===id).kw;
-
 }
-
-
 
 async function fetchAgency(agency) {
-
+  if (!apiKey) { alert("먼저 API 키를 입력하고 저장 버튼을 눌러주세요."); return; }
   loading[agency.id] = true;
-
   renderCard(agency);
-
   const kw = getKw(agency.id);
-
   const prompt = `당신은 정부 보도자료 분석 전문가입니다. 아래 기관의 최근 1주일 보도자료 중 인터넷 회원 서비스, 온라인 플랫폼, 개인정보, 소비자 권익 관련 주요 이슈를 요약해주세요.\n\n기관: ${agency.name}\n관련 키워드: ${kw.join(", ")}\n\n다음 JSON 형식으로만 응답하세요 (마크다운 없이):\n{"summary":"이번 주 주요 동향 1-2문장 요약","items":[{"title":"보도자료 제목","date":"2025-01-XX","category":"카테고리","description":"2-3문장 요약","importance":"high|medium|low"}],"insight":"실무 담당자를 위한 핵심 시사점 1문장"}\n\nitems는 2~3개, 실제 있을 법한 이슈 위주로 작성하세요.`;
-
   try {
-
     const res = await fetch("https://api.anthropic.com/v1/messages", {
-
       method:"POST",
-
-      headers:{"Content-Type":"application/json"},
-
+      headers:{ "Content-Type":"application/json", "x-api-key": apiKey, "anthropic-version":"2023-06-01", "anthropic-dangerous-direct-browser-access":"true" },
       body: JSON.stringify({ model:"claude-sonnet-4-20250514", max_tokens:1000, messages:[{role:"user",content:prompt}] })
-
     });
-
     const data = await res.json();
-
+    if (data.error) throw new Error(data.error.message);
     const text = data.content?.find(b=>b.type==="text")?.text || "";
-
     const clean = text.replace(/```json|```/g,"").trim();
-
     results[agency.id] = JSON.parse(clean);
-
   } catch(e) {
-
-    results[agency.id] = { error: true };
-
+    results[agency.id] = { error: true, msg: e.message };
   }
-
   loading[agency.id] = false;
-
   renderCard(agency);
-
   renderUnified();
-
 }
-
-
 
 async function fetchAll() {
-
+  if (!apiKey) { alert("먼저 API 키를 입력하고 저장 버튼을 눌러주세요."); return; }
   document.getElementById("unifiedSection").style.display = "none";
-
   document.getElementById("unifiedList").innerHTML = "";
-
   await Promise.all(AGENCIES.map(fetchAgency));
-
   const el = document.getElementById("lastUpdated");
-
   el.textContent = "마지막 업데이트: " + new Date().toLocaleString("ko-KR");
-
   el.style.display = "block";
-
 }
-
-
 
 function renderCard(agency) {
-
   const r = results[agency.id];
-
   const isLoading = loading[agency.id];
-
   let inner = "";
-
   if (isLoading) {
-
     inner = `<div class="loading">보도자료 분석 중...</div>`;
-
   } else if (!r) {
-
     inner = `<div class="placeholder"><p>스크랩을 시작하려면 버튼을 눌러주세요</p><div class="kw-tags">${agency.kw.map(k=>`<span class="kw-tag" style="background:${agency.bg};color:${agency.text}">${k}</span>`).join("")}</div></div>`;
-
   } else if (r.error) {
-
-    inner = `<p class="error">불러오기 실패. 다시 시도해주세요.</p>`;
-
+    inner = `<p class="error">불러오기 실패: ${r.msg||"다시 시도해주세요."}</p>`;
   } else {
-
     const items = (r.items||[]).map(item => {
-
       const bc = item.importance==="high"?"badge-high":item.importance==="medium"?"badge-medium":"badge-low";
-
       const bl = item.importance==="high"?"중요":item.importance==="medium"?"보통":"참고";
-
       return `<div class="item"><div class="item-top"><span class="item-title">${item.title}</span><span class="badge ${bc}">${bl}</span></div><p class="item-desc">${item.description}</p></div>`;
-
     }).join("");
-
     inner = `<div class="summary-box" style="background:${agency.bg}">${r.summary}</div>${items}${r.insight?`<div class="insight" style="border-left:2px solid ${agency.color}">💡 ${r.insight}</div>`:""}`;
-
   }
-
   let el = document.getElementById("card-"+agency.id);
-
   if (!el) {
-
     el = document.createElement("div");
-
     el.className = "card";
-
     el.id = "card-"+agency.id;
-
     document.getElementById("grid").appendChild(el);
-
   }
-
   el.innerHTML = `<div class="card-header"><div class="card-title"><span class="dot" style="background:${agency.color}"></span>${agency.short}</div><a class="card-link" href="${agency.url}" target="_blank" style="color:${agency.color}">사이트 →</a></div>${inner}`;
-
 }
-
-
 
 function renderUnified() {
-
   const allItems = AGENCIES.flatMap(a => (results[a.id]?.items||[]).map(item=>({...item, agency:a})));
-
   if (!allItems.length) return;
-
   allItems.sort((a,b)=>({high:0,medium:1,low:2}[a.importance]-{high:0,medium:1,low:2}[b.importance]));
-
   document.getElementById("unifiedSection").style.display = activeTab==="all" ? "block" : "none";
-
   document.getElementById("unifiedList").innerHTML = allItems.map(item=>{
-
     const bc = item.importance==="high"?"badge-high":item.importance==="medium"?"badge-medium":"badge-low";
-
     const bl = item.importance==="high"?"중요":item.importance==="medium"?"보통":"참고";
-
     return `<div class="unified-item"><span class="agency-badge" style="background:${item.agency.bg};color:${item.agency.text}">${item.agency.short}</span><div class="unified-content"><div class="unified-header"><span class="unified-title-text">${item.title}</span><span class="badge ${bc}">${bl}</span></div><p class="unified-desc">${item.description}</p></div><span class="unified-date">${item.date||""}</span></div>`;
-
   }).join("");
-
 }
 
-
-
-function setTab(id) {
-
+function setTab(id, e) {
   activeTab = id;
-
   document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-
-  event.target.classList.add("active");
-
+  e.target.classList.add("active");
   const grid = document.getElementById("grid");
-
   grid.innerHTML = "";
-
   const show = id==="all" ? AGENCIES : AGENCIES.filter(a=>a.id===id);
-
   show.forEach(renderCard);
-
   document.getElementById("unifiedSection").style.display = (id==="all" && Object.keys(results).length) ? "block" : "none";
-
 }
-
-
 
 function toggleSettings() {
-
   const el = document.getElementById("settingsBox");
-
   el.style.display = el.style.display==="none" ? "block" : "none";
-
 }
-
-
-
-AGENCIES.forEach(renderCard);
-
 </script>
-
 </body>
-
 </html>
