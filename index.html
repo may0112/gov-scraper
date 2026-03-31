@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Apple SD Gothic Neo'; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 12.0px 'Apple SD Gothic Neo'; font-kerning: none}
+    span.s3 {font: 12.0px Helvetica; font-kerning: none}
+    span.s4 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
+    span.s5 {font: 12.0px 'Lucida Grande'; font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="ko"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;</span><span class="s2">정부기관</span><span class="s1"> </span><span class="s2">주간</span><span class="s1"> </span><span class="s2">이슈</span><span class="s1"> </span><span class="s2">스크랩</span><span class="s1">&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f5f3; color: #1a1a1a; min-height: 100vh; padding: 1.5rem 1rem; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.container { max-width: 900px; margin: 0 auto; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 12px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.header h1 { font-size: 20px; font-weight: 500; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.header p { font-size: 13px; color: #666; margin-top: 4px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.btn-group { display: flex; gap: 8px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button { font-size: 13px; padding: 6px 16px; border-radius: 8px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-family: inherit; color: #1a1a1a; transition: background 0.15s; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button:hover { background: #f0f0f0; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button.primary { font-weight: 500; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.tabs { display: flex; gap: 8px; margin-bottom: 1.25rem; flex-wrap: wrap; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.tab { font-size: 13px; padding: 5px 14px; border-radius: 20px; border: 1px solid #ddd; background: transparent; cursor: pointer; color: #666; font-family: inherit; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.tab.active { background: #fff; color: #1a1a1a; font-weight: 500; border-color: #bbb; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.settings-box { background: #f0f0ee; border-radius: 12px; border: 1px solid #e0e0e0; padding: 1rem 1.25rem; margin-bottom: 1.25rem; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.settings-box p { font-size: 14px; font-weight: 500; margin-bottom: 10px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.settings-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.settings-row label { font-size: 13px; color: #666; min-width: 80px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.settings-row input { flex: 1; font-size: 13px; padding: 5px 10px; border-radius: 6px; border: 1px solid #ccc; background: #fff; font-family: inherit; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.last-updated { font-size: 12px; color: #888; text-align: right; margin-bottom: 12px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 1rem 1.25rem; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.card-title { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.card-link { font-size: 12px; text-decoration: none; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.card-link:hover { text-decoration: underline; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.summary-box { font-size: 13px; color: #444; line-height: 1.7; margin-bottom: 12px; padding: 8px 10px; border-radius: 8px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.item { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.item:last-of-type { border-bottom: none; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.item-top { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 4px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.item-title { font-size: 13px; font-weight: 500; flex: 1; line-height: 1.4; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.badge { font-size: 11px; padding: 1px 7px; border-radius: 5px; white-space: nowrap; border: 1px solid transparent; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.badge-high { background: #FCEBEB; color: #A32D2D; border-color: #F09595; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.badge-medium { background: #FAEEDA; color: #854F0B; border-color: #FAC775; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.badge-low { background: #EAF3DE; color: #3B6D11; border-color: #C0DD97; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.item-desc { font-size: 12px; color: #666; line-height: 1.6; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.insight { margin-top: 10px; padding: 8px 10px; border-radius: 0 6px 6px 0; background: #f7f7f5; font-size: 12px; color: #333; line-height: 1.6; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.placeholder { padding: 1rem 0; text-align: center; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.placeholder p { font-size: 13px; color: #888; margin-bottom: 10px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.kw-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.kw-tag { font-size: 11px; padding: 2px 8px; border-radius: 5px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.loading { padding: 1.5rem 0; text-align: center; font-size: 13px; color: #888; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.error { font-size: 13px; color: #c0392b; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.unified { margin-bottom: 24px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.unified-title { font-size: 13px; font-weight: 500; color: #666; margin-bottom: 10px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.unified-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.agency-badge { font-size: 11px; padding: 2px 8px; border-radius: 5px; white-space: nowrap; margin-top: 2px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.unified-content { flex: 1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.unified-header { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.unified-title-text { font-size: 14px; font-weight: 500; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.unified-desc { font-size: 13px; color: #666; line-height: 1.6; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.unified-date { font-size: 12px; color: #aaa; white-space: nowrap; margin-top: 2px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.footer-note { margin-top: 20px; padding: 10px 14px; background: #f0f0ee; border-radius: 8px; font-size: 12px; color: #888; line-height: 1.7; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h1&gt;</span><span class="s2">정부기관</span><span class="s1"> </span><span class="s2">주간</span><span class="s1"> </span><span class="s2">이슈</span><span class="s1"> </span><span class="s2">스크랩</span><span class="s1">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p&gt;</span><span class="s2">공정위</span><span class="s1"> · </span><span class="s2">소비자원</span><span class="s1"> · </span><span class="s2">개인정보위</span><span class="s1"> </span><span class="s2">인터넷</span><span class="s1"> </span><span class="s2">회원</span><span class="s1"> </span><span class="s2">관련</span><span class="s1"> </span><span class="s2">보도자료</span><span class="s1">&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="btn-group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="toggleSettings()"&gt;</span><span class="s2">키워드</span><span class="s1"> </span><span class="s2">설정</span><span class="s1">&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="primary" onclick="fetchAll()"&gt;</span><span class="s2">지금</span><span class="s1"> </span><span class="s2">스크랩</span><span class="s1"> </span><span class="s2">↗</span><span class="s1">&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="settings-box" id="settingsBox" style="display:none"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;</span><span class="s2">추가</span><span class="s1"> </span><span class="s2">키워드</span><span class="s1"> </span><span class="s2">설정</span><span class="s1"> (</span><span class="s2">쉼표로</span><span class="s1"> </span><span class="s2">구분</span><span class="s1">)&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="settings-row"&gt;&lt;label&gt;</span><span class="s2">공정위</span><span class="s1">&lt;/label&gt;&lt;input id="kw-ftc" placeholder="</span><span class="s2">온라인</span><span class="s1">, </span><span class="s2">이용자</span><span class="s1">, </span><span class="s2">회원</span><span class="s1">, </span><span class="s2">플랫폼</span><span class="s1">, </span><span class="s2">전자상거래</span><span class="s1">" /&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="settings-row"&gt;&lt;label&gt;</span><span class="s2">소비자원</span><span class="s1">&lt;/label&gt;&lt;input id="kw-kca" placeholder="</span><span class="s2">온라인</span><span class="s1">, </span><span class="s2">회원</span><span class="s1">, </span><span class="s2">구독</span><span class="s1">, </span><span class="s2">취소</span><span class="s1">, </span><span class="s2">환불</span><span class="s1">, </span><span class="s2">피해</span><span class="s1">" /&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="settings-row"&gt;&lt;label&gt;</span><span class="s2">개인정보위</span><span class="s1">&lt;/label&gt;&lt;input id="kw-pipc" placeholder="</span><span class="s2">개인정보</span><span class="s1">, </span><span class="s2">회원</span><span class="s1">, </span><span class="s2">동의</span><span class="s1">, </span><span class="s2">수집</span><span class="s1">, </span><span class="s2">처리</span><span class="s1">, </span><span class="s2">위반</span><span class="s1">" /&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div id="lastUpdated" class="last-updated" style="display:none"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="tabs" id="tabs"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="tab active" onclick="setTab('all')"&gt;</span><span class="s2">전체</span><span class="s1"> </span><span class="s2">보기</span><span class="s1">&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="tab" onclick="setTab('ftc')"&gt;</span><span class="s2">공정위</span><span class="s1">&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="tab" onclick="setTab('kca')"&gt;</span><span class="s2">소비자원</span><span class="s1">&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="tab" onclick="setTab('pipc')"&gt;</span><span class="s2">개인정보위</span><span class="s1">&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="unified" id="unifiedSection" style="display:none"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="unified-title"&gt;</span><span class="s2">중요도</span><span class="s1"> </span><span class="s2">순</span><span class="s1"> </span><span class="s2">통합</span><span class="s1"> </span><span class="s2">목록</span><span class="s1">&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="unifiedList"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="grid" id="grid"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="footer-note"&gt;</span></p>
+<p class="p3"><span class="s3"><span class="Apple-converted-space">    </span>※ </span><span class="s1">이</span><span class="s3"> </span><span class="s1">대시보드는</span><span class="s3"> AI</span><span class="s1">가</span><span class="s3"> </span><span class="s1">생성한</span><span class="s3"> </span><span class="s1">예시</span><span class="s3"> </span><span class="s1">이슈</span><span class="s3"> </span><span class="s1">분석입니다</span><span class="s3">. </span><span class="s1">실제</span><span class="s3"> </span><span class="s1">보도자료</span><span class="s3"> </span><span class="s1">확인은</span><span class="s3"> </span><span class="s1">각</span><span class="s3"> </span><span class="s1">기관</span><span class="s3"> </span><span class="s1">공식</span><span class="s3"> </span><span class="s1">사이트</span><span class="s3"> </span><span class="s1">링크를</span><span class="s3"> </span><span class="s1">이용해주세요</span><span class="s3">. </span><span class="s1">매주</span><span class="s3"> </span><span class="s1">월요일</span><span class="s3"> "</span><span class="s1">지금</span><span class="s3"> </span><span class="s1">스크랩</span><span class="s3">" </span><span class="s1">버튼을</span><span class="s3"> </span><span class="s1">눌러</span><span class="s3"> </span><span class="s1">최신</span><span class="s3"> </span><span class="s1">동향을</span><span class="s3"> </span><span class="s1">받아보세요</span><span class="s3">.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script&gt;</span></p>
+<p class="p1"><span class="s1">const AGENCIES = [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{ id:"ftc", name:"</span><span class="s2">공정거래위원회</span><span class="s1">", short:"</span><span class="s2">공정위</span><span class="s1">", color:"#185FA5", bg:"#E6F1FB", text:"#0C447C",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>kw:["</span><span class="s2">온라인</span><span class="s1">","</span><span class="s2">이용자</span><span class="s1">","</span><span class="s2">회원</span><span class="s1">","</span><span class="s2">플랫폼</span><span class="s1">","</span><span class="s2">전자상거래</span><span class="s1">","</span><span class="s2">약관</span><span class="s1">","</span><span class="s2">구독</span><span class="s1">"],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>url:"https://www.ftc.go.kr/www/selectReportUserList.do?key=10&amp;rpttype=1" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{ id:"kca", name:"</span><span class="s2">한국소비자원</span><span class="s1">", short:"</span><span class="s2">소비자원</span><span class="s1">", color:"#0F6E56", bg:"#E1F5EE", text:"#085041",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>kw:["</span><span class="s2">온라인</span><span class="s1">","</span><span class="s2">회원</span><span class="s1">","</span><span class="s2">구독</span><span class="s1">","</span><span class="s2">취소</span><span class="s1">","</span><span class="s2">환불</span><span class="s1">","</span><span class="s2">피해</span><span class="s1">","</span><span class="s2">앱</span><span class="s1">"],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>url:"https://www.kca.go.kr/home/sub.do?menukey=4002" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{ id:"pipc", name:"</span><span class="s2">개인정보보호위원회</span><span class="s1">", short:"</span><span class="s2">개인정보위</span><span class="s1">", color:"#533AB7", bg:"#EEEDFE", text:"#3C3489",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>kw:["</span><span class="s2">개인정보</span><span class="s1">","</span><span class="s2">회원</span><span class="s1">","</span><span class="s2">동의</span><span class="s1">","</span><span class="s2">수집</span><span class="s1">","</span><span class="s2">처리</span><span class="s1">","</span><span class="s2">위반</span><span class="s1">","</span><span class="s2">제재</span><span class="s1">"],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>url:"https://www.pipc.go.kr/np/cop/bbs/selectBoardList.do?bbsId=BS074" }</span></p>
+<p class="p1"><span class="s1">];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">let results = {}, loading = {}, activeTab = "all";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function getKw(id) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const val = document.getElementById("kw-"+id)?.value.trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (val) return val.split(",").map(s=&gt;s.trim()).filter(Boolean);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>return AGENCIES.find(a=&gt;a.id===id).kw;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">async function fetchAgency(agency) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>loading[agency.id] = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>renderCard(agency);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const kw = getKw(agency.id);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const prompt = `</span><span class="s2">당신은</span><span class="s1"> </span><span class="s2">정부</span><span class="s1"> </span><span class="s2">보도자료</span><span class="s1"> </span><span class="s2">분석</span><span class="s1"> </span><span class="s2">전문가입니다</span><span class="s1">. </span><span class="s2">아래</span><span class="s1"> </span><span class="s2">기관의</span><span class="s1"> </span><span class="s2">최근</span><span class="s1"> 1</span><span class="s2">주일</span><span class="s1"> </span><span class="s2">보도자료</span><span class="s1"> </span><span class="s2">중</span><span class="s1"> </span><span class="s2">인터넷</span><span class="s1"> </span><span class="s2">회원</span><span class="s1"> </span><span class="s2">서비스</span><span class="s1">, </span><span class="s2">온라인</span><span class="s1"> </span><span class="s2">플랫폼</span><span class="s1">, </span><span class="s2">개인정보</span><span class="s1">, </span><span class="s2">소비자</span><span class="s1"> </span><span class="s2">권익</span><span class="s1"> </span><span class="s2">관련</span><span class="s1"> </span><span class="s2">주요</span><span class="s1"> </span><span class="s2">이슈를</span><span class="s1"> </span><span class="s2">요약해주세요</span><span class="s1">.\n\n</span><span class="s2">기관</span><span class="s1">: ${agency.name}\n</span><span class="s2">관련</span><span class="s1"> </span><span class="s2">키워드</span><span class="s1">: ${kw.join(", ")}\n\n</span><span class="s2">다음</span><span class="s1"> JSON </span><span class="s2">형식으로만</span><span class="s1"> </span><span class="s2">응답하세요</span><span class="s1"> (</span><span class="s2">마크다운</span><span class="s1"> </span><span class="s2">없이</span><span class="s1">):\n{"summary":"</span><span class="s2">이번</span><span class="s1"> </span><span class="s2">주</span><span class="s1"> </span><span class="s2">주요</span><span class="s1"> </span><span class="s2">동향</span><span class="s1"> 1-2</span><span class="s2">문장</span><span class="s1"> </span><span class="s2">요약</span><span class="s1">","items":[{"title":"</span><span class="s2">보도자료</span><span class="s1"> </span><span class="s2">제목</span><span class="s1">","date":"2025-01-XX","category":"</span><span class="s2">카테고리</span><span class="s1">","description":"2-3</span><span class="s2">문장</span><span class="s1"> </span><span class="s2">요약</span><span class="s1">","importance":"high|medium|low"}],"insight":"</span><span class="s2">실무</span><span class="s1"> </span><span class="s2">담당자를</span><span class="s1"> </span><span class="s2">위한</span><span class="s1"> </span><span class="s2">핵심</span><span class="s1"> </span><span class="s2">시사점</span><span class="s1"> 1</span><span class="s2">문장</span><span class="s1">"}\n\nitems</span><span class="s2">는</span><span class="s1"> 2~3</span><span class="s2">개</span><span class="s1">, </span><span class="s2">실제</span><span class="s1"> </span><span class="s2">있을</span><span class="s1"> </span><span class="s2">법한</span><span class="s1"> </span><span class="s2">이슈</span><span class="s1"> </span><span class="s2">위주로</span><span class="s1"> </span><span class="s2">작성하세요</span><span class="s1">.`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const res = await fetch("https://api.anthropic.com/v1/messages", {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>method:"POST",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>headers:{"Content-Type":"application/json"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>body: JSON.stringify({ model:"claude-sonnet-4-20250514", max_tokens:1000, messages:[{role:"user",content:prompt}] })</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const data = await res.json();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const text = data.content?.find(b=&gt;b.type==="text")?.text || "";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const clean = text.replace(/```json|```/g,"").trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>results[agency.id] = JSON.parse(clean);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} catch(e) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>results[agency.id] = { error: true };</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>loading[agency.id] = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>renderCard(agency);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>renderUnified();</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">async function fetchAll() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById("unifiedSection").style.display = "none";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById("unifiedList").innerHTML = "";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>await Promise.all(AGENCIES.map(fetchAgency));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const el = document.getElementById("lastUpdated");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>el.textContent = "</span><span class="s2">마지막</span><span class="s1"> </span><span class="s2">업데이트</span><span class="s1">: " + new Date().toLocaleString("ko-KR");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>el.style.display = "block";</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function renderCard(agency) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const r = results[agency.id];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const isLoading = loading[agency.id];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>let inner = "";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (isLoading) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>inner = `&lt;div class="loading"&gt;</span><span class="s2">보도자료</span><span class="s1"> </span><span class="s2">분석</span><span class="s1"> </span><span class="s2">중</span><span class="s1">...&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} else if (!r) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>inner = `&lt;div class="placeholder"&gt;&lt;p&gt;</span><span class="s2">스크랩을</span><span class="s1"> </span><span class="s2">시작하려면</span><span class="s1"> </span><span class="s2">버튼을</span><span class="s1"> </span><span class="s2">눌러주세요</span><span class="s1">&lt;/p&gt;&lt;div class="kw-tags"&gt;${agency.kw.map(k=&gt;`&lt;span class="kw-tag" style="background:${agency.bg};color:${agency.text}"&gt;${k}&lt;/span&gt;`).join("")}&lt;/div&gt;&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} else if (r.error) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>inner = `&lt;p class="error"&gt;</span><span class="s2">불러오기</span><span class="s1"> </span><span class="s2">실패</span><span class="s1">. </span><span class="s2">다시</span><span class="s1"> </span><span class="s2">시도해주세요</span><span class="s1">.&lt;/p&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const items = (r.items||[]).map(item =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const bc = item.importance==="high"?"badge-high":item.importance==="medium"?"badge-medium":"badge-low";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const bl = item.importance==="high"?"</span><span class="s2">중요</span><span class="s1">":item.importance==="medium"?"</span><span class="s2">보통</span><span class="s1">":"</span><span class="s2">참고</span><span class="s1">";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>return `&lt;div class="item"&gt;&lt;div class="item-top"&gt;&lt;span class="item-title"&gt;${item.title}&lt;/span&gt;&lt;span class="badge ${bc}"&gt;${bl}&lt;/span&gt;&lt;/div&gt;&lt;p class="item-desc"&gt;${item.description}&lt;/p&gt;&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}).join("");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>inner = `&lt;div class="summary-box" style="background:${agency.bg}"&gt;${r.summary}&lt;/div&gt;${items}${r.insight?`&lt;div class="insight" style="border-left:2px solid ${agency.color}"&gt;</span><span class="s4">💡</span><span class="s1"> ${r.insight}&lt;/div&gt;`:""}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>let el = document.getElementById("card-"+agency.id);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (!el) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>el = document.createElement("div");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>el.className = "card";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>el.id = "card-"+agency.id;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("grid").appendChild(el);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>el.innerHTML = `&lt;div class="card-header"&gt;&lt;div class="card-title"&gt;&lt;span class="dot" style="background:${agency.color}"&gt;&lt;/span&gt;${agency.short}&lt;/div&gt;&lt;a class="card-link" href="${agency.url}" target="_blank" style="color:${agency.color}"&gt;</span><span class="s2">사이트</span><span class="s1"> </span><span class="s5">→</span><span class="s1">&lt;/a&gt;&lt;/div&gt;${inner}`;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function renderUnified() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const allItems = AGENCIES.flatMap(a =&gt; (results[a.id]?.items||[]).map(item=&gt;({...item, agency:a})));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (!allItems.length) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>allItems.sort((a,b)=&gt;({high:0,medium:1,low:2}[a.importance]-{high:0,medium:1,low:2}[b.importance]));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById("unifiedSection").style.display = activeTab==="all" ? "block" : "none";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById("unifiedList").innerHTML = allItems.map(item=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const bc = item.importance==="high"?"badge-high":item.importance==="medium"?"badge-medium":"badge-low";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const bl = item.importance==="high"?"</span><span class="s2">중요</span><span class="s1">":item.importance==="medium"?"</span><span class="s2">보통</span><span class="s1">":"</span><span class="s2">참고</span><span class="s1">";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return `&lt;div class="unified-item"&gt;&lt;span class="agency-badge" style="background:${item.agency.bg};color:${item.agency.text}"&gt;${item.agency.short}&lt;/span&gt;&lt;div class="unified-content"&gt;&lt;div class="unified-header"&gt;&lt;span class="unified-title-text"&gt;${item.title}&lt;/span&gt;&lt;span class="badge ${bc}"&gt;${bl}&lt;/span&gt;&lt;/div&gt;&lt;p class="unified-desc"&gt;${item.description}&lt;/p&gt;&lt;/div&gt;&lt;span class="unified-date"&gt;${item.date||""}&lt;/span&gt;&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}).join("");</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function setTab(id) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>activeTab = id;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.querySelectorAll(".tab").forEach(t=&gt;t.classList.remove("active"));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>event.target.classList.add("active");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const grid = document.getElementById("grid");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>grid.innerHTML = "";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const show = id==="all" ? AGENCIES : AGENCIES.filter(a=&gt;a.id===id);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>show.forEach(renderCard);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById("unifiedSection").style.display = (id==="all" &amp;&amp; Object.keys(results).length) ? "block" : "none";</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function toggleSettings() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const el = document.getElementById("settingsBox");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>el.style.display = el.style.display==="none" ? "block" : "none";</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">AGENCIES.forEach(renderCard);</span></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
